@@ -2,6 +2,10 @@ package linkedlist;
 
 class LL {
     Node head;
+    private int size;
+    LL() {
+        this.size = 0;
+    }
 
     class Node {
         String data;
@@ -10,6 +14,7 @@ class LL {
         Node(String data) {
             this.data = data;
             this.next = null;
+            size++;
         }
     }
 
@@ -54,6 +59,7 @@ class LL {
             System.out.println("This is an empty list");
             return;
         }
+        size --;
         head = head.next;
     }
 
@@ -62,6 +68,7 @@ class LL {
             System.out.println("This is an empty list");
             return;
         }
+        size--;
 
         if (head.next == null) {
             head = null;
@@ -77,6 +84,10 @@ class LL {
         secondLast.next = null;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public static void main(String[] args) {
         LL list = new LL();
         list.addFirst("a");
@@ -90,5 +101,6 @@ class LL {
         list.printList();
         list.delLast();
         list.printList();
+        System.out.println("The size of list is "+list.getSize());
     }
 }
